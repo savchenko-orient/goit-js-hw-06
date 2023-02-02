@@ -17,7 +17,10 @@ const images = [
 const listElem = document.querySelector('.gallery');
 listElem.classList.add('flex-gallery');
 
-images.forEach(({ url, alt }) => {
-  listElem.insertAdjacentHTML('beforeend',
-    `<li> <img srs=${url} alt="${alt}"> </li>`)
-});
+const createListItemEl = ({ url, alt }) => {
+  return `<li> <img srs=${url} alt='${alt}'> </li>`
+};
+
+const galeryMarkup = images.map(createListItemEl).join('')
+
+listElem.insertAdjacentHTML('afterbegin', galeryMarkup)
