@@ -4,13 +4,9 @@ const VALIDATION_LENGTH = Number(input.dataset.length);
 const handlerValidationInput = () => {
     const isValidInput = input.value.length === VALIDATION_LENGTH;
 
-    if (isValidInput) {
-        input.classList.add("valid")
-        input?.classList.remove('invalid')
-    } else {
-        input.classList.add("invalid")
-        input?.classList.remove('valid')
-    }
+    isValidInput
+        ? input.setAttribute('class', 'valid')
+        : input.setAttribute('class', 'invalid')
 }
 
 input.addEventListener('blur', handlerValidationInput)
